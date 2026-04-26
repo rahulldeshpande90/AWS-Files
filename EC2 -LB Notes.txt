@@ -1,0 +1,166 @@
+1. What is an EC2 instance?
+Answer:
+ Amazon EC2 is a virtual server in AWS used to run applications. It provides scalable compute capacity where you can choose OS, CPU, memory, and storage as per requirement.
+
+🔹 2. What are different EC2 instance types?
+Answer:
+* General purpose – balanced CPU and Memory (M & T Series)
+* Compute optimized – high CPU (c series)
+* Memory optimized – high RAM (r series)
+* Storage optimized – high Storage (i & d series)
+
+
+🔹 3. Difference between Stop and Terminate?
+Answer:
+* Stop: Instance shuts down, can restart later (EBS data persists)
+* Terminate: Instance deleted permanently (data lost unless backed up)
+
+🔹 4. What is AMI?
+Answer:
+ AMI (Amazon Machine Image) is a template that contains OS, software, and configuration used to launch EC2 instances.
+
+🔹 5. What is EBS?
+Answer:
+ Amazon EBS is block storage attached to EC2. It acts like a hard disk and persists even after instance stop.
+
+🔹 6. EBS vs Instance Store?
+Answer:
+* EBS: Persistent storage
+* Instance Store: Temporary (data lost on stop/terminate)
+
+🔹 7. What is a Snapshot?
+Answer:
+ A snapshot is a backup of EBS volume stored in S3. Used for recovery and creating new volumes.
+
+🔹 8. What is a Security Group?
+Answer:
+ A virtual firewall at instance level controlling inbound/outbound traffic. It is stateful.
+
+🔹 9. Security Group vs NACL?
+Answer:
+* Security Group: Instance level, stateful
+* NACL: Subnet level, stateless
+
+🔹 10. What is a VPC?
+Answer:
+ A Virtual Private Cloud is a logically isolated network in AWS where you launch EC2 instances with custom IP ranges, subnets, and routing.
+
+🔹 11. What is Elastic IP?
+Answer:
+ A static public IP that can be attached to an EC2 instance and remains constant even after restart.
+
+🔹 12. How do you connect to EC2?
+Answer:
+* Linux: SSH using key pair (.pem)
+* Windows: RDP using password
+
+🔹 13. What is Auto Scaling?
+Answer:
+ Automatically increases/decreases EC2 instances based on load to maintain performance and cost efficiency.
+
+🔹 14. What is Load Balancer?
+Answer:
+ Distributes incoming traffic across multiple EC2 instances for high availability.
+
+🔹 15. What is CloudWatch?
+Answer:
+ Amazon CloudWatch is used for monitoring metrics like CPU, memory (custom), logs, and setting alarms.
+
+🔹 16. How do you troubleshoot EC2 not reachable?
+Answer:
+ Step-by-step:
+* Check instance state (running?)
+* Verify Security Group (port 22/80 open?)
+* Check NACL rules
+* Verify key pair
+* Check network (public IP, route table, IGW)
+👉 Always answer in steps like this
+
+🔹 17. EC2 high CPU usage – what will you do?
+Answer:
+* Check CloudWatch metrics
+* Identify process using top / htop
+* Restart service if needed
+* Scale up (bigger instance) or scale out (Auto Scaling)
+
+🔹 18. Disk full issue – how to fix?
+Answer:
+* Check disk usage: df -h
+* Remove unwanted files/logs
+* Extend EBS volume
+* Resize filesystem
+
+🔹 19. What is IAM role in EC2?
+Answer:
+ IAM role allows EC2 to access AWS services securely without hardcoding credentials.
+
+🔹 20. How to deploy application on EC2?
+Answer:
+ Basic flow:
+* Launch EC2
+* Install dependencies (Java, Node, etc.)
+* Clone repo (Git)
+* Run application
+* Configure Nginx/Apache
+* Open required ports
+
+21. Types of AMI 
+1. Quickstart AMIs - freely available, used for practice purpose and experimentation, not verified and trusted by aws.
+2. AWS Marketplace AMIs- Trusted and verified by aws, used for production env, listed in aws marketplace and aws assigns rating to them,
+3. MY AMIs - 1. Owned by me- user has created 2. Shared with me - other AWS user shared with you.
+4. Community AMIs- creates private AMI and then make it public it becomes communinity ami, not verified and trusted by aws.
+
+22. Types of Purchasing options in EC2
+1. On-Demand Instance
+2. Spot Instance
+3. Reserved Instance
+
+23. Types of LB
+1. Application LB - Operates on 7th Layer, suports HTTP and HTTPS, supports header
+2. Network LB - opearates on 4th layer, suports TCP and UDP, 
+3. Classic LB
+4. Gateway LB
+
+24. Difference between TCP and UDP
+TCP Stands for Transmission Control Protocol
+No data loss in TCP.
+TCP is slower than UDP. 
+ex-email
+
+UDP 
+UDP stands for user datagram protocol.
+data loss in UDP.
+UDP is faster than TCP.
+EX. phone call
+
+25. OSI model 
+OSI is Opensystem Interconnection Model.
+
+1.Physical layer
+2. data link layer
+3. network layer
+4. transport layer
+5. session layer
+6. presentation layer
+7. application layer
+
+26. Different strategies used in LB
+
+1. Round Robin Strategy- disteributes incoming traffic accress all available servers in a sequencial manner, 1 request to s1, 2 req to s2, 3 request to s1, 
+4th request to s4.
+2. Least outstanding request strategy-LB checks which instance has least load and sends more request to that instance, 1st server having higher loads, 
+for new 100 req, 70 req send to s2 and 30 req to s1.
+
+27. Components of LB
+
+1. Target-
+2. Target group
+3. Listener
+4. Health check
+
+
+
+
+
+
+
